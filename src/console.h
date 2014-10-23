@@ -11,7 +11,9 @@ int commandCount;
 
 
 void printConsole();
+void printWelcome();
 void printversion();
+void parseInput();
 
 #endif /* defined(____console__) */
 
