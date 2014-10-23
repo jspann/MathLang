@@ -1,0 +1,9 @@
+Reserver words:
+for
+endfor
+clear
+
+
+
+Reserved symbols:
+"[]" "()" "+" "-" "*" "/"

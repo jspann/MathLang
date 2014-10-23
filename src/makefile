@@ -3,12 +3,13 @@ PP=g++
 CFLAGS=-Wall
 
 all:
-	$(CC) -std=c99 -c main.c	
-	$(CC) -o math Functions.o
+	$(PP) -std=c99 -c main.c
+	$(PP) -std=c99 -c RPN.cpp	
+	$(PP) -o math main.o RPN.o
 
 32:
 	$(CC) -arch i386 -c main.c	
-	$(CC) -arch i386 -o math Compiler.o Error.o Clex.o CParse.o CGen.o Table.o Token.o Functions.o
+	$(CC) -arch i386 -o math main.o
 	make clean
     
 clean:
