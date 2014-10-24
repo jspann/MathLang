@@ -1,0 +1,1 @@
+This language comes with 4 data types: doubles, strings, matricies, and arrays.
