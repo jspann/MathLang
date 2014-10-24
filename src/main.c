@@ -27,7 +27,7 @@ FILE *fp;
 int main(int argc, char *argv[]){
     indentLoop = 0;
     commandCount = 0;
-    printWelcome();
+    //printWelcome();
     
     
     
@@ -54,7 +54,6 @@ void printConsole(){
 
 void printWelcome(){
     printf("%sWelcome to the oak programming language!%s\n",KBLU,RESETCOLOR);
-    printversion();
 }
 
 void printversion(){
@@ -71,14 +70,18 @@ void parseInput(){
 
     }else if (strcmp(userinput,"help") == 0){
         printf("Available commands:\n");
-        printf("-------------------");
+        printf("-------------------\n");
         printf("exit - exits oak\n");
+        printf("clear - clears screen\n");
+        printf("ver - displays oak version\n");
+    }else if(strcmp(userinput,"ver") == 0){
+        printversion();
     }else{
         //try to tokenize
         
         //WORKSprintf("\n%s\n",strtok(userinput,","));
         
-        fp=fopen(strcpy(userinput,".l"), "r");
+        fp=fopen(strcpy(userinput,".oak"), "r");
         if(fp) {
             //read the file
             fclose(fp);

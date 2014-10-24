@@ -1,0 +1,3 @@
+void interpret(char* myinput){
+
+}

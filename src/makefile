@@ -6,7 +6,8 @@ all:
 	$(PP) -std=c99 -c main.c
 	$(PP) -std=c99 -c RPN.cpp
 	$(CC) -std=c99 -c symtab.c
-	$(PP) -o math main.o RPN.o
+	$(CC) -std=c99 -c interpreter.c
+	$(PP) -o math main.o RPN.o interpreter.o
 
 32:
 	$(CC) -arch i386 -c main.c	
