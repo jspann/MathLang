@@ -4,7 +4,8 @@ CFLAGS=-Wall
 
 all:
 	$(PP) -std=c99 -c main.c
-	$(PP) -std=c99 -c RPN.cpp	
+	$(PP) -std=c99 -c RPN.cpp
+	$(CC) -std=c99 -c symtab.c
 	$(PP) -o math main.o RPN.o
 
 32:
