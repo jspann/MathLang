@@ -5,6 +5,7 @@
 
 #import "console.h"
 #import "RPN.h"
+#import "symtab.h"
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -20,12 +21,13 @@
 
 char userinput[20], str2[30];
 int running = 0;
+FILE *fp;
 
 int main(int argc, char *argv[]){
     indentLoop = 0;
     commandCount = 0;
     printWelcome();
-    
+    //setup symbol table
     while (running == 0) {
         printConsole();
         scanf("%s", &userinput);
@@ -36,7 +38,7 @@ int main(int argc, char *argv[]){
 
 void printConsole(){
     if (indentLoop == 0) {
-        printf("\nlang:%d>",commandCount);
+        printf("lang:%d>",commandCount);
     }else{
         for (int d = 0; d<commandCount; d++) {
             printf(">");
@@ -64,7 +66,17 @@ void parseInput(){
     }else if (strcmp(userinput,"help") == 0){
         
     }else{
-        printf("Unrecognized command");
+        //try to tokenize
+        
+        fp=fopen(strcpy(userinput,".l"), "r");
+        if(fp) {
+            //read the file
+            fclose(fp);
+        }else{
+            //printf("Unrecognized command\n");
+            exit(0);
+        }
+
     }
     
     commandCount++;
